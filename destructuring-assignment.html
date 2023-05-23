@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring Assignment 解構賦值  </title>
+</head>
+<body>
+    <script>
+        // 陣列解構賦值
+        // 傳統做法
+        /*
+        let arr=[3,4,5];
+
+        // let d1=arr[0];
+        // let d2=arr[1];
+        // let d3=arr[2];
+        
+        // 解構賦值做法
+        // 方法一: 原始解構形式
+        // let [d1,d2,d3]= arr;
+        
+        // 方法二:先列出變數，再進行解構的變形
+        
+        // let d1,d2,d3;
+        // [d1,d2,d3]= arr; 
+        // console.log(d1,d2,d3);
+
+        let d1,d2,d3,d4;
+        [d1,d2,d3,d4]= arr;  //原先陣列裡d4沒有資料就會出undefined
+        [d1,d2,d3,d4=10]= arr;  //給d4預設值10
+        // 沒有資料時會採用預設值，若有資料就會優先採用資料的內容
+        
+        console.log(d1,d2,d3,d4);
+        */
+
+        //------------------------------------//
+        // 變數資料交換
+        /*
+        let n1=3;
+        let n2=4;
+        [n2,n1]=[n1,n2];  //用此方法做資料交換
+        console.log(n1,n2);
+        */
+
+       //------------------------------------//
+       //物件解構賦值
+       //傳統做法
+    
+       let obj={x:3,y:4}
+    //    let x=obj.x;
+    //    let y=obj.y;
+    
+       let x, y,z;
+       ({x,y,z=10} = obj);    //宣告物件解構賦值時加上小括號() 避免出錯
+       console.log(x,y,z);    //宣告物件時，物件內容沒有z，為z設立預設值=10
+        // 沒有資料時會採用預設值，若有資料就會優先採用資料的內容
+
+        // 想用其他變數名稱替代成員的內容 使用以下做法
+        let NewX,NewY,NewZ;
+        ({x:NewX,y:NewY,z:NewZ=10} = obj);    //後續運用變數去控制物件內容
+        console.log(NewX,NewY,NewZ);    
+
+
+        //統整函式的物件參數
+        function add(args){                 //args 為一個物件
+            console.log(args.n1+args.n2);   //物件內包含兩個內容
+        }
+        add({n1:3,n2:4});
+        
+        // 把上方傳統寫法用解構賦值操作
+        function add({n1,n2}){
+            console.log(n1+n2);
+        }
+        add({n1:3,n2:4});
+    </script>
+</body>
+</html>
