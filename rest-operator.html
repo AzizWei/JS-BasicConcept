@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其餘運算 Rest Operator</title>
+</head>
+<body>
+    <script>
+        //其餘運算符號: ...
+        //限制:必須放在最末端
+        /*
+        1.運用在解構賦值 
+            陣列:把剩餘 資料 包在一個新的陣列當中
+            物件:把剩餘 成員 包在一個新的物件當中
+        2.運用在函式參數 : 其餘參數
+            把剩餘 參數 包在一個新的陣列中
+        */
+
+        //1-1.運用在解構賦值 :陣列
+        let [n1,n2, ...data]=[3,2,1,5,4,0];
+        console.log(n1,n2,data);  //data=[1,5,4,0]
+        //1-2.運用在解構賦值 :物件
+        let {x,y,...obj}={x:3,y:4,z:5,a:1,b:2};
+        console.log(x,y,obj);  // obj={z,a,b}
+        
+
+        // 2.運用在函式參數 : 其餘參數
+        function add(n1,n2,...args){
+            console.log(n1+n2,args);
+            let total=n1+n2;
+            for(let i=0;i<args.length;i++){   //利用迴圈累加
+                total+=args[i];
+            }
+            console.log(total);
+        }
+        add(3,4);  //args 空陣列    //7
+        add(5,6,1,2);  //args=[1,2]     //14
+        add(1,2,3,1,1); //args=[3,1,1]      //8
+    </script>
+</body>
+</html>
