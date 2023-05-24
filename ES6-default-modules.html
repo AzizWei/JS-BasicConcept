@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模組基礎 - 預設輸出輸入</title>
+</head>
+<body>
+    <!--1.傳統作法:把兩個JS都引入
+        - 不是良好的模組系統，會有控制管理上的缺點
+        - 例如:如果在兩個檔案中都取相同名稱的變數，會產生衝突。
+        - 因此不建議此做法
+    -->>
+    <!-- <script src="lib.js"></script> -->
+    <script type="module" src="main.js"></script>
+
+    <!--2.切割管理不同JS
+        2-1 網頁引入時設定 type 為 module
+        2-2 使用 export 輸出模組的資料 export default 變數名稱; 
+        2-3 使用 import 輸入模組的資料 import 變數名稱 from "模組檔案路徑"
+        2-4 模組擁有獨立性，即便兩個檔案有相同變數名稱 也不會互相影響
+    -->
+</body>
+</html>
